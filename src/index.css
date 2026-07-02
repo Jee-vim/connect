@@ -78,3 +78,24 @@ body {
     transform: translateX(60px) scale(0.95);
   }
 }
+
+.anim-in.swipe-next {
+  animation: swipeNextIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+.anim-out.swipe-next {
+  animation: swipeNextOut 0.25s ease both;
+}
+
+.anim-in.swipe-prev {
+  animation: swipePrevIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+.anim-out.swipe-prev {
+  animation: swipePrevOut 0.25s ease both;
+}
+
+.anim-in:not(.swipe-next):not(.swipe-prev) {
+  animation: swipeNextIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
