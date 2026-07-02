@@ -70,7 +70,9 @@ export default function App() {
     <section className="w-full h-full">
       <div className="h-full flex flex-col justify-between gap-8">
         <Progress remaining={remaining} total={total} onReset={handleReset} />
-        <Card text={current} phase={phase} direction={direction} />
+        <div className='overflow-hidden'>
+          <Card text={current} phase={phase} direction={direction} />
+        </div>
         <div className="flex gap-4">
           <button
             className="bg-bg w-full px-6 py-3 font-bold text-black uppercase border-3 border-fg shadow-[5px_5px_0_0_#000] transition-all duration-100 ease-in active:translate-x-1 active:translate-y-1 active:shadow-none"
