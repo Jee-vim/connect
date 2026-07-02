@@ -7,7 +7,8 @@
 }
 
 :root {
-  font: 18px/145% var(--font-primary);
+  font-family: "Momo Trust Display", sans-serif;
+  font: 18px/145%;
   letter-spacing: 0.18px;
   color-scheme: light;
   color: var(--color-fg);
