@@ -1,4 +1,5 @@
 import { useQuestions } from './hooks/useQuestions'
+import { QUESTIONS } from './lib/constants'
 import { useClickSound } from './hooks/useClickSound'
 import { useBackgroundMusic } from './hooks/useBackgroundMusic'
 import { Progress } from './components/Progress'
@@ -18,6 +19,7 @@ export default function App() {
     handlePrev,
     reset,
   } = useQuestions()
+  const total = QUESTIONS.length
   const { playClick } = useClickSound()
   const { playClick: playResetSound } = useClickSound('/faahhh.mp3')
   const { start: startBgMusic } = useBackgroundMusic()
@@ -67,7 +69,7 @@ export default function App() {
   return (
     <section className="w-full h-full">
       <div className="h-full flex flex-col justify-between gap-8">
-        <Progress remaining={remaining} onReset={handleReset} />
+        <Progress remaining={remaining} total={total} onReset={handleReset} />
         <Card text={current} phase={phase} direction={direction} />
         <div className="flex gap-4">
           <button

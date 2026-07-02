@@ -4,6 +4,8 @@ type CardProps = {
   text: string
   phase: Phase
   direction: Direction
+  currentIndex?: number
+  total?: number
 }
 
 function animClass(phase: Phase, direction: Direction): string {
@@ -12,10 +14,17 @@ function animClass(phase: Phase, direction: Direction): string {
   return `${base} ${swipe} w-full min-w-0 break-words`
 }
 
-export function Card({ text, phase, direction }: CardProps) {
+export function Card({ text, phase, direction, currentIndex, total }: CardProps) {
   return (
-    <div className="flex items-center justify-center px-6 py-3 h-[70vh] font-bold text-center text-[var(--color-fg)] text-2xl border-3 border-fg shadow-[5px_5px_0_0_#000] overflow-hidden">
-      <div className={animClass(phase, direction)}>{text}</div>
+    <div className="relative flex items-center justify-center px-4 py-6 h-[65vh] font-bold text-center text-[var(--color-fg)] text-xl sm:text-2xl border-3 border-fg shadow-[5px_5px_0_0_#000] overflow-hidden rounded-lg bg-bg">
+      <div className={animClass(phase, direction)}>
+        {text}
+      </div>
+      {currentIndex !== undefined && total !== undefined && (
+        <div className="absolute top-3 right-3 px-2 py-1 text-xs font-bold bg-primary text-black rounded">
+          {currentIndex} / {total}
+        </div>
+      )}
     </div>
   )
 }
