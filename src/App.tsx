@@ -47,7 +47,7 @@ export default function App() {
     return (
       <section className="w-full h-full">
         <div className="h-full flex flex-col justify-between gap-8">
-          <Progress remaining={0} onReset={handleReset} />
+          <Progress remaining={0} total={total} onReset={handleReset} />
           <Card text="All questions completed! Great job." phase={phase} direction={direction} />
           <div className="flex gap-4">
             <button

@@ -1,5 +1,3 @@
-import { QUESTIONS } from '../lib/constants'
-
 type ProgressProps = {
   remaining: number
   total: number
