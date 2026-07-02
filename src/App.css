@@ -9,7 +9,7 @@
   gap: 2rem;
 }
 .flex-col-between {
-  height: 93vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -81,13 +81,70 @@
   width: 100%;
 }
 
-/* Default: slide up with spring overshoot */
-.card-content.anim-in {
-  animation: slideUp 0.4s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+/* Neo-brutalist swipe transitions */
+@keyframes swipeNextIn {
+  from {
+    opacity: 0;
+    transform: translateX(60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
 
-.card-content.anim-out {
-  animation: slideOut 0.25s ease both;
+@keyframes swipeNextOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.95);
+  }
+}
+
+@keyframes swipePrevIn {
+  from {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes swipePrevOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(60px) scale(0.95);
+  }
+}
+
+.card-content.anim-in.swipe-next {
+  animation: swipeNextIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+.card-content.anim-out.swipe-next {
+  animation: swipeNextOut 0.25s ease both;
+}
+
+.card-content.anim-in.swipe-prev {
+  animation: swipePrevIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+.card-content.anim-out.swipe-prev {
+  animation: swipePrevOut 0.25s ease both;
+}
+
+/* Default initial load (no direction yet) */
+.card-content.anim-in:not(.swipe-next):not(.swipe-prev) {
+  animation: swipeNextIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
 }
 
 /* Alternative: blur + slide (uncomment to use) */

@@ -1,7 +1,7 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import { QUESTION } from './lib/contants'
-import { getCookie, setCookie } from './lib/cookie'
+import { getStorage, setStorage, clearStorage } from './lib/storage'
 
 const SHOWN_KEY = 'connects_shown_questions';
 
@@ -10,9 +10,12 @@ function App() {
   const [displayed, setDisplayed] = useState<string>('')
   const [remaining, setRemaining] = useState<number>(0)
   const [phase, setPhase] = useState<'enter' | 'exit'>('enter')
+  const [direction, setDirection] = useState<'next' | 'prev'>('next')
+  const [isCompleted, setIsCompleted] = useState<boolean>(false)
+  const [history, setHistory] = useState<string[]>([])
 
-  const shownIds: string[] = (() => {
-    const raw = getCookie(SHOWN_KEY);
+  function readShown(): string[] {
+    const raw = getStorage(SHOWN_KEY)
     if (!raw) return []
     try {
       const parsed = JSON.parse(raw)
@@ -20,40 +23,54 @@ function App() {
     } catch {
       return []
     }
-  })()
-
-  const available = QUESTION.filter((q) => !shownIds.includes(q))
+  }
 
   function pickQuestion(seen: string[]) {
     const pool = QUESTION.filter((q) => !seen.includes(q))
     setRemaining(pool.length - 1)
     if (pool.length === 0) {
-      setCurrent(QUESTION[Math.floor(Math.random() * QUESTION.length)])
+      setIsCompleted(true)
       return
     }
+    setIsCompleted(false)
     setCurrent(pool[Math.floor(Math.random() * pool.length)])
   }
 
   function reset() {
-    setCookie(SHOWN_KEY, '[]')
+    clearStorage(SHOWN_KEY)
+    setHistory([])
+    setCurrent('')
+    setDisplayed('')
     pickQuestion([])
   }
 
-  function addShown(question: string) {
-    const nextShown = [...shownIds, question]
-    setCookie(SHOWN_KEY, JSON.stringify(nextShown))
+  function handleNext() {
+    if (!current) return
+    const nextShown = [...readShown(), current]
+    setStorage(SHOWN_KEY, JSON.stringify(nextShown))
+    setHistory(prev => [...prev, current])
+    setDirection('next')
+    pickQuestion(nextShown)
+  }
+
+  function handlePrev() {
+    if (history.length === 0) return
+    const previous = history[history.length - 1]
+    setHistory(h => h.slice(0, -1))
+    setDirection('prev')
+    setCurrent(previous)
+    setIsCompleted(false)
   }
 
   useEffect(() => {
-    if (available.length === 0) {
-      setCurrent(QUESTION[Math.floor(Math.random() * QUESTION.length)])
-      setRemaining(QUESTION.length - 1)
+    const shown = readShown()
+    if (shown.length === 0) {
+      pickQuestion([])
       return
     }
-    pickQuestion(shownIds)
+    pickQuestion(shown)
   }, [])
 
-  // Handle enter/exit animation when the question changes
   useEffect(() => {
     if (!current) return
     if (current === displayed) return
@@ -72,21 +89,45 @@ function App() {
     return () => clearTimeout(timer)
   }, [current])
 
-  function handleNext() {
-    if (!current) return
-    addShown(current)
-    const nextShown = [...shownIds, current]
-    pickQuestion(nextShown)
+  if (isCompleted) {
+    return (
+      <section>
+        <div className='flex-col-between'>
+          <div className='progress'>
+            <div className='flex-row-between'>
+              <p>0 LEFT</p>
+              <p role="button" tabIndex={0} onClick={reset} onKeyDown={(e) => e.key === 'Enter' && reset()}>
+                RESET
+              </p>
+            </div>
+            <div className='percentage'>
+              <div className='percentage-bar' style={{width: '0%'}}></div>
+            </div>
+          </div>
+          <div className='card'>
+            <div className='card-content anim-in'>
+              All questions completed!<br />Great job.
+            </div>
+          </div>
+          <div className='flex'>
+            <button className="primary" onClick={reset} style={{width: '100%'}}>
+              Start Over
+            </button>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   if (!displayed && !current) {
     return null
   }
 
-  const text = phase === 'exit' ? displayed : current
+  const text = current
   const animClass = displayed !== ''
     ? (phase === 'enter' ? 'anim-in' : 'anim-out')
     : 'anim-in'
+  const swipeClass = direction === 'next' ? 'swipe-next' : 'swipe-prev'
 
   return (
     <section>
@@ -105,13 +146,13 @@ function App() {
           </div>
         </div>
         <div className='card'>
-          <div className={`card-content ${animClass}`}>
+          <div className={`card-content ${animClass} ${swipeClass}`}>
             {text}
           </div>
         </div>
         <div className='flex'>
-          <button className="outline" onClick={() => addShown(current)}>
-            pass
+          <button className="outline" onClick={handlePrev}>
+            prev
           </button>
           <button className="primary" onClick={handleNext}>
             next card
