@@ -6,10 +6,10 @@ function App() {
     <>
       <section>
       <div className='flex'>
-<button className="outline">
-pass
+      <button className="outline">
+      pass
       </button>
-      <button className="primary">
+      <button className="default">
       next card
       </button>  
       </div>
