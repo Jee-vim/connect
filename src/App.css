@@ -2,33 +2,48 @@
   display: flex;
   gap: 1rem;
 }
+.flex-col-between {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
 
-.retro {
-  display: inline-block;
+.percentage {
+  width: 100%;
+  background-color: var(--bg);
+  overflow: hidden;
+  border: 2px solid;
+}
+
+.percentage-bar {
+  height: 10px;
+  background-color: var(--primary);
+  border-right: 2px solid;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 24px;
+  height: 70vh;
   
   font-weight: bold;
   color: #000000;
+  font-size: 1.5rem;
   
   border: 3px solid;
-  border-radius: 4px;
   
   box-shadow: 5px 5px 0px 0px #000000;
-  
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  cursor: pointer;
-}
-
-.retro:active {
-  transform: translate(5px, 5px);
-  box-shadow: 0px 0px 0px 0px #000000;
 }
 
 .outline {
-  background-color: var(--fg);
-  border: 3px solid;
+  background-color: var(--bg) !important;
+  border: 3px solid var(--fg) !important;
 }
-.default {
-  background-color: var(--primary);
-  width: 100%;
+.primary {
+  background-color: var(--primary) !important;
+  width: 100% !important;
 }
