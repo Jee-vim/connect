@@ -16,6 +16,7 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+}
 
 *,
 ::after,
@@ -23,6 +24,11 @@
 ::backdrop,
 ::file-selector-button {
   border-color: var(--fg);
+}
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
 button {
   all: unset;
@@ -46,11 +52,10 @@ button:active {
   transform: translate(5px, 5px);
   box-shadow: 0px 0px 0px 0px #000000;
 }
-}
 
 #root {
-  width: 706px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 706px;
   margin: 0 auto;
   text-align: center;
   padding: 1rem;

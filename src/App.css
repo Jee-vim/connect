@@ -54,7 +54,6 @@
   width: 100% !important;
 }
 
-/* Native card transitions (no library) */
 @keyframes slideUp {
   from {
     opacity: 0;
