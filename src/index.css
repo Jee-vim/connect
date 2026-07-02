@@ -35,67 +35,33 @@ body {
   min-height: 100svh;
 }
 
-@keyframes swipeNextIn {
-  from {
-    opacity: 0;
-    transform: translateX(60px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
 @keyframes swipeNextOut {
-  from {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(-60px) scale(0.95);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
 }
 
-@keyframes swipePrevIn {
-  from {
-    opacity: 0;
-    transform: translateX(-60px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
+@keyframes swipeNextIn {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
 }
 
 @keyframes swipePrevOut {
-  from {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(60px) scale(0.95);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
 }
 
-.anim-in.swipe-next {
-  animation: swipeNextIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+@keyframes swipePrevIn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
 }
 
-.anim-out.swipe-next {
-  animation: swipeNextOut 0.25s ease both;
-}
+.anim-out.swipe-next { animation: swipeNextOut 0.28s ease both; }
+.anim-in.swipe-next  { animation: swipeNextIn 0.28s ease both; }
 
-.anim-in.swipe-prev {
-  animation: swipePrevIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
-}
-
-.anim-out.swipe-prev {
-  animation: swipePrevOut 0.25s ease both;
-}
+.anim-out.swipe-prev { animation: swipePrevOut 0.28s ease both; }
+.anim-in.swipe-prev  { animation: swipePrevIn 0.28s ease both; }
 
 .anim-in:not(.swipe-next):not(.swipe-prev) {
-  animation: swipeNextIn 0.35s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+  animation: swipeNextIn 0.28s ease both;
 }
 

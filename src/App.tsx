@@ -38,7 +38,7 @@ export default function App() {
           setStarted(true)
         }}
         title="Connects"
-        description="A question card game for couples"
+        description="A question card game"
       />
     )
   }
