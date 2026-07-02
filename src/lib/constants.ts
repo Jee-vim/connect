@@ -1,4 +1,4 @@
-export const QUESTION = [
+export const QUESTIONS = [
   // ==========================================
   // PDKT (Pendekatan / Dating Phase)
   // ==========================================
@@ -56,7 +56,7 @@ export const QUESTION = [
   "Apa cara terbaik buat kita berdua untuk nyelesaiin miskomunikasi?",
   "Ada gak hal dari masa lalu yang masih sering ngeganjel di hati kamu?",
   "Pernah gak aku gak sengaja ngebongkar insecurity terbesar kamu?",
-  "Gimana cara kita bisa tetep romantis di tengah kesibukan masing-masing?",
+  "Gimana cara kita tetep bisa romantis di tengah kesibukan masing-masing?",
   "Apa ekspektasi kamu yang belum terpenuhi dalam hubungan ini?",
   "Gimana pandangan kamu soal keuangan kalau kita nanti makin serius?",
   "Apa batasan (boundaries) yang gak boleh kita langgar satu sama lain?",
@@ -188,4 +188,4 @@ export const QUESTION = [
   "Lebih milih punya pasangan yang pinter banget tapi cuek, atau yang biasa aja tapi perhatiannya berlebihan?",
   "Menurut kamu, boleh gak kita tetep nyimpen barang dari mantan kalau barang itu beneran berguna?",
   "Apa indikator utama yang bikin kamu ngerasa sebuah hubungan udah bener-bener mati dan gak bisa diselamatin?"
-];
+]

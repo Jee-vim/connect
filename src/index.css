@@ -1,79 +1,79 @@
-:root {
-  --fg: #1d2021;
-  --bg: #f9f5d7;
-  --primary: #fabd2f;
+@import "tailwindcss";
 
+@theme {
+  --color-fg: #1d2021;
+  --color-bg: #f9f5d7;
+  --color-primary: #fabd2f;
+}
+
+:root {
   font: 18px/145% var(--font-primary);
   letter-spacing: 0.18px;
   color-scheme: light;
-  color: var(--fg);
-  background: var(--bg);
+  color: var(--color-fg);
+  background: var(--color-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-*,
-::after,
-::before,
-::backdrop,
-::file-selector-button {
-  border-color: var(--fg);
+html {
+  height: 100%;
 }
-*{
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-button {
-  all: unset;
-  cursor: pointer;
-  padding: 12px 24px;
-  
-  font-weight: bold;
-  color: #000000;
-  
-  box-shadow: 5px 5px 0px 0px #000000;
-  text-transform: uppercase;
-  
-  transition: transform 0.1s ease, box-shadow 0.1s ease;
-  cursor: pointer;
-}
-button:focus,
-button:focus-visible,
-button:active {
-  outline: none !important;
-  box-shadow: none !important;
-  transform: translate(5px, 5px);
-  box-shadow: 0px 0px 0px 0px #000000;
+
+body {
+  height: 100%;
 }
 
 #root {
   width: 100%;
   max-width: 706px;
   margin: 0 auto;
-  text-align: center;
   padding: 1rem;
   min-height: 100svh;
-  box-sizing: border-box;
 }
 
-body {
-  background: var(--bg);
-  width: 100%;
-  height: 100%;
+@keyframes swipeNextIn {
+  from {
+    opacity: 0;
+    transform: translateX(60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
 }
-section {
-  width: 100%;
-  height: 100%;
+
+@keyframes swipeNextOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.95);
+  }
 }
-p {
-  font-weight: 600;
-  font-size: 0.8rem;
-  text-align: left;
+
+@keyframes swipePrevIn {
+  from {
+    opacity: 0;
+    transform: translateX(-60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes swipePrevOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(60px) scale(0.95);
+  }
 }

@@ -1,22 +1,22 @@
-export function getStorage(key: string): string | null {
+export function getItem(key: string): string | null {
   try {
-    return localStorage.getItem(key);
+    return localStorage.getItem(key)
   } catch {
-    return null;
+    return null
   }
 }
 
-export function setStorage(key: string, value: string): void {
+export function setItem(key: string, value: string): void {
   try {
-    localStorage.setItem(key, value);
+    localStorage.setItem(key, value)
   } catch {
     // storage full or unavailable
   }
 }
 
-export function clearStorage(key: string): void {
+export function removeItem(key: string): void {
   try {
-    localStorage.removeItem(key);
+    localStorage.removeItem(key)
   } catch {
     // ignore
   }
