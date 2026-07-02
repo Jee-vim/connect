@@ -5,6 +5,7 @@ import { useBackgroundMusic } from './hooks/useBackgroundMusic'
 import { Progress } from './components/Progress'
 import { Card } from './components/Card'
 import { StartPopup } from './components/StartPopup'
+import { VolumeButton } from './components/VolumeButton'
 import { useState } from 'react'
 
 export default function App() {
@@ -20,14 +21,19 @@ export default function App() {
     reset,
   } = useQuestions()
   const total = QUESTIONS.length
-  const { playClick } = useClickSound()
-  const { playClick: playResetSound } = useClickSound('/faahhh.mp3')
-  const { start: startBgMusic } = useBackgroundMusic()
+  const [muted, setMuted] = useState(false)
+  const { playClick } = useClickSound('/click.mp3', muted)
+  const { playClick: playResetSound } = useClickSound('/faahhh.mp3', muted)
+  const { start: startBgMusic } = useBackgroundMusic('/background.mp3', muted)
   const [started, setStarted] = useState(false)
 
   const handleReset = () => {
     playResetSound()
     reset()
+  }
+
+  const handleToggleMute = () => {
+    setMuted((prev) => !prev)
   }
 
   if (!started) {
@@ -47,7 +53,10 @@ export default function App() {
     return (
       <section className="w-full h-full">
         <div className="h-full flex flex-col justify-between gap-8">
-          <Progress remaining={0} total={total} onReset={handleReset} />
+          <div className="flex justify-between items-center">
+            <Progress remaining={0} total={total} onReset={handleReset} />
+            <VolumeButton muted={muted} onToggle={handleToggleMute} />
+          </div>
           <Card text="All questions completed! Great job." phase={phase} direction={direction} />
           <div className="flex gap-4">
             <button
@@ -69,7 +78,10 @@ export default function App() {
   return (
     <section className="w-full h-full">
       <div className="h-full flex flex-col justify-between gap-8">
-        <Progress remaining={remaining} total={total} onReset={handleReset} />
+        <div className="flex justify-between items-end gap-6">
+          <Progress remaining={remaining} total={total} onReset={handleReset} />
+          <VolumeButton muted={muted} onToggle={handleToggleMute} />
+        </div>
         <div className='overflow-hidden'>
           <Card text={current} phase={phase} direction={direction} />
         </div>

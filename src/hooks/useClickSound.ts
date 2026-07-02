@@ -1,12 +1,13 @@
 import { useRef, useCallback, useEffect, useState } from 'react'
 
-export function useClickSound(src = '/click.mp3') {
+export function useClickSound(src = '/click.mp3', muted = false) {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
     const audio = new Audio(src)
     audio.preload = 'auto'
+    audio.muted = muted
     audioRef.current = audio
 
     const handleCanPlay = () => setReady(true)
@@ -23,6 +24,12 @@ export function useClickSound(src = '/click.mp3') {
       audioRef.current = null
     }
   }, [src])
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.muted = muted
+    }
+  }, [muted])
 
   const play = useCallback(() => {
     if (!audioRef.current || !ready) return

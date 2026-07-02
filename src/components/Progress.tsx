@@ -8,7 +8,7 @@ export function Progress({ remaining, total, onReset }: ProgressProps) {
   const pct = ((total - remaining) / total) * 100
 
   return (
-    <div className="flex flex-col items-start gap-1">
+    <div className="w-full flex flex-col items-start gap-1">
       <div className="flex justify-between items-center w-full">
         <p className="text-sm font-semibold text-left text-fg">
           {total - remaining} / {total}
