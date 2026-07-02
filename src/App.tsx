@@ -2,14 +2,15 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import { QUESTION } from './lib/contants'
 import { getCookie, setCookie } from './lib/cookie'
+
 const SHOWN_KEY = 'connects_shown_questions';
+
 function App() {
   const [current, setCurrent] = useState<string>('')
+  const [displayed, setDisplayed] = useState<string>('')
   const [remaining, setRemaining] = useState<number>(0)
-  function reset() {
-    setCookie(SHOWN_KEY, '[]')
-    pickRandom()
-  }
+  const [phase, setPhase] = useState<'enter' | 'exit'>('enter')
+
   const shownIds: string[] = (() => {
     const raw = getCookie(SHOWN_KEY);
     if (!raw) return []
@@ -20,40 +21,73 @@ function App() {
       return []
     }
   })()
+
   const available = QUESTION.filter((q) => !shownIds.includes(q))
-  function pickRandom() {
-    const pool = QUESTION.filter((q) => !shownIds.includes(q))
+
+  function pickQuestion(seen: string[]) {
+    const pool = QUESTION.filter((q) => !seen.includes(q))
+    setRemaining(pool.length - 1)
     if (pool.length === 0) {
-      setCookie(SHOWN_KEY, '[]')
       setCurrent(QUESTION[Math.floor(Math.random() * QUESTION.length)])
-      setRemaining(QUESTION.length - 1)
       return
     }
-    const next = pool[Math.floor(Math.random() * pool.length)]
-    setCurrent(next)
-    setRemaining(pool.length - 1)
+    setCurrent(pool[Math.floor(Math.random() * pool.length)])
   }
+
+  function reset() {
+    setCookie(SHOWN_KEY, '[]')
+    pickQuestion([])
+  }
+
   function addShown(question: string) {
     const nextShown = [...shownIds, question]
     setCookie(SHOWN_KEY, JSON.stringify(nextShown))
   }
+
   useEffect(() => {
     if (available.length === 0) {
       setCurrent(QUESTION[Math.floor(Math.random() * QUESTION.length)])
       setRemaining(QUESTION.length - 1)
       return
     }
-    setCurrent(available[Math.floor(Math.random() * available.length)])
-    setRemaining(available.length - 1)
+    pickQuestion(shownIds)
   }, [])
+
+  // Handle enter/exit animation when the question changes
+  useEffect(() => {
+    if (!current) return
+    if (current === displayed) return
+
+    if (displayed === '') {
+      setDisplayed(current)
+      return
+    }
+
+    setPhase('exit')
+    const timer = setTimeout(() => {
+      setDisplayed(current)
+      setPhase('enter')
+    }, 250)
+
+    return () => clearTimeout(timer)
+  }, [current])
+
   function handleNext() {
     if (!current) return
     addShown(current)
-    pickRandom()
+    const nextShown = [...shownIds, current]
+    pickQuestion(nextShown)
   }
-  if (!current) {
+
+  if (!displayed && !current) {
     return null
   }
+
+  const text = phase === 'exit' ? displayed : current
+  const animClass = displayed !== ''
+    ? (phase === 'enter' ? 'anim-in' : 'anim-out')
+    : 'anim-in'
+
   return (
     <section>
       <div className='flex-col-between'>
@@ -71,7 +105,9 @@ function App() {
           </div>
         </div>
         <div className='card'>
-          {current}
+          <div className={`card-content ${animClass}`}>
+            {text}
+          </div>
         </div>
         <div className='flex'>
           <button className="outline" onClick={() => addShown(current)}>
@@ -85,4 +121,5 @@ function App() {
     </section>
   )
 }
+
 export default App
