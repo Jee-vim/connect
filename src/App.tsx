@@ -20,7 +20,7 @@ export default function App() {
     handlePrev,
     reset,
   } = useQuestions()
-  const total = QUESTIONS.length
+  const total = Object.values(QUESTIONS).flat().length
   const { start: startBgMusic, muted, toggleMute } = useBackgroundMusic('/background.mp3', false)
   const { playClick } = useClickSound('/click.mp3', muted)
   const { playClick: playResetSound } = useClickSound('/faahhh.mp3', muted)

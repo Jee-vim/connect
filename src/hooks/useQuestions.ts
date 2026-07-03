@@ -26,7 +26,7 @@ export function useQuestions() {
   const [history, setHistory] = useState<string[]>([])
 
   const pickQuestion = useCallback((seen: string[]) => {
-    const pool = QUESTIONS.filter((q) => !seen.includes(q))
+    const pool = Object.values(QUESTIONS).flat().filter((q) => !seen.includes(q))
     setRemaining(Math.max(0, pool.length - 1))
     if (pool.length === 0) {
       setIsCompleted(true)
