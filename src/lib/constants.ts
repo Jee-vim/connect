@@ -152,7 +152,7 @@ export const QUESTIONS: Record<string, string[]> = {
     "Gimana cara kamu menjaga bara semangat kamu tetep nyala pas target yang kamu kejar terus-terusan nemu jalan buntu?",
     "Jika hari ini adalah kesempatan terakhirmu buat ngomong, apa kebenaran paling jujur yang pengen kamu sampaikan ke dunia?"
   ],
-  casual: [
+casual: [
     "Kalau kamu dapet kekuatan super buat bisa denger isi pikiran hewan, hewan apa yang pertama kali mau kamu ajak gibah?",
     "Apa resep atau kombinasi makanan instan paling eksperimental versi kamu yang rasanya ternyata mind-blowing?",
     "Kalau tiba-tiba dunia diserang zombie, apa barang pertama di kamar kamu sekarang yang bakal kamu jadiin senjata?",
@@ -177,7 +177,22 @@ export const QUESTIONS: Record<string, string[]> = {
     "Apa meme atau video absurd yang porsinya paling sering kamu kirim ke temen deket buat nge-spam chat mereka?",
     "Lebih milih gak bisa tidur pake bantal seumur hidup atau harus selalu tidur pake kaos kaki basah?",
     "Apa kebiasaan refleks kamu yang paling aneh pas lagi kaget atau bener-bener panik karena hal sepele?",
-    "Kalau hidup kamu dijadiin game RPG, kira-kira apa stat tertinggi dan skill pasif yang ada di karakter kamu?"
+    "Kalau hidup kamu dijadiin game RPG, kira-kira apa stat tertinggi dan skill pasif yang ada di karakter kamu?",
+    "Kalau wifi rumah kamu mendadak mati total selama seminggu penuh, aktivitas non-gadget apa yang bakal bikin kamu survive?",
+    "Apa fobia paling aneh atau tidak rasional yang kamu miliki tapi orang lain sering menganggapnya lucu?",
+    "Lebih milih suara kamu berubah jadi logat kartun setiap kali lagi marah besar atau nangis sambil ketawa ngakak?",
+    "Kalau kamu harus bertahan hidup di dalam minimarket 24 jam selama sebulan, lorong makanan mana yang pertama kamu amankan?",
+    "Apa hal paling memalukan yang pernah kamu beli karena tergiur review algoritma FYP, padahal akhirnya gak kepake sama sekali?",
+    "Lebih milih kehilangan kemampuan buat bedain rasa asin dan manis atau gak bisa ngerasain pedas seumur hidup?",
+    "Jika semua barang mati di kamar kamu tiba-tiba bisa ngomong, benda mana yang paling tahu rahasia memalukanmu?",
+    "Apa teori konspirasi paling absurd atau gak masuk akal yang diam-diam sempat kamu percaya porsinya?",
+    "Kalau kamu mendadak jadi miliarder dalam semalam, barang receh apa yang tetep bakal kamu tawar pas belanja?",
+    "Lebih milih punya gaya rambut aneh permanen yang gak bisa diganti atau selalu salah kostum tiap kali dateng ke acara formal?",
+    "Apa aplikasi di HP kamu yang paling jarang dibuka tapi tetep gak mau kamu uninstall karena alasan sentimental?",
+    "Kalau kamu dikasih kesempatan buat nyoba satu profesi ekstrem selama sehari tanpa risiko cedera, kamu mau nyoba jadi apa?",
+    "Lebih milih dapet kiriman paket misterius setiap minggu yang isinya random atau dapet akses gratis semua layanan streaming seumur hidup?",
+    "Apa kebiasaan makan kamu yang paling sering diprotes atau dianggap sekte aneh oleh circle pertemanan dekatmu?",
+    "Kalau hidup kamu punya soundtrack background music otomatis kayak di film, lagu apa yang bakal muter pas kamu lagi mager?"
   ],
   darkHorse: [
     "Menurut kamu, apakah wajar kalau seseorang tetep punya rasa tertarik secara fisik ke orang lain pas udah punya pasangan?",
@@ -186,6 +201,13 @@ export const QUESTIONS: Record<string, string[]> = {
     "Menurut opini kontroversial kamu, apakah selingkuh non-fisik kayak emotional cheating itu jauh lebih ngerusak dibanding physical?",
     "Apa hal paling manipulatif yang pernah refleks kamu lakuin demi menangin argumen atau dapet perhatian dari seseorang?",
     "Gimana pandangan kamu tentang konsep 'open relationship' atau poliamori? Apakah itu murni kebebasan atau pelarian dari komitmen?",
-    "Apa indikator paling toxic dari diri kamu sendiri yang sadar atau gak sadar sering bikin hubungan masa lalu kamu hancur?"
+    "Apa indikator paling toxic dari diri kamu sendiri yang sadar atau gak sadar sering bikin hubungan masa lalu kamu hancur?",
+    "Menurut kamu, apakah murni kesalahan satu pihak jika kasus perselingkuhan terjadi, atau ada andil kelalaian dari pasangannya?",
+    "Apa pandangan kontroversial kamu tentang mantan yang tiba-tiba ngajak berteman baik lagi setelah putus secara tidak baik-baik?",
+    "Seberapa jauh kamu bakal mentoleransi pasangan yang terbukti masih sering kepo atau stalking akun media sosial lamanya mantan?",
+    "Menurut kamu, apakah boleh memanfaatkan rasa bersalah pasangan atas kesalahan masa lalunya demi mendapatkan keuntungan dalam argumen baru?",
+    "Apa batasan tersembunyi yang kalau dilanggar oleh pasangan secara verbal, bakal langsung bikin rasa respek kamu ilang total tanpa ampun?",
+    "Gimana pendapat kamu tentang orang yang sengaja bikin skenario 'tes kesetiaan' buat pasangannya lewat akun fake atau bantuan temen?",
+    "Menurutmu, apakah ada situasi di mana memutuskan hubungan secara sepihak lewat chat tanpa penjelasan (ghosting) itu sepenuhnya bisa dibenarkan?"
   ]
 };
