@@ -21,10 +21,9 @@ export default function App() {
     reset,
   } = useQuestions()
   const total = QUESTIONS.length
-  const [muted, setMuted] = useState(false)
+  const { start: startBgMusic, muted, toggleMute } = useBackgroundMusic('/background.mp3', false)
   const { playClick } = useClickSound('/click.mp3', muted)
   const { playClick: playResetSound } = useClickSound('/faahhh.mp3', muted)
-  const { start: startBgMusic } = useBackgroundMusic('/background.mp3', muted)
   const [started, setStarted] = useState(false)
 
   const handleReset = () => {
@@ -32,9 +31,7 @@ export default function App() {
     reset()
   }
 
-  const handleToggleMute = () => {
-    setMuted((prev) => !prev)
-  }
+  const handleToggleMute = toggleMute
 
   if (!started) {
     return (
