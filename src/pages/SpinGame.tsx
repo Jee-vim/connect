@@ -62,6 +62,7 @@ export function SpinGame() {
   const [spinPhase, setSpinPhase] = useState<'idle' | 'spinning-name' | 'picking-type' | 'spinning-type' | 'done'>('idle')
   const [mode, setMode] = useState<'online' | 'offline'>('online')
   const [showConfetti, setShowConfetti] = useState(false)
+  const [usedNames, setUsedNames] = useState<string[]>([])
   const { playClick: playSelect } = useClickSound('/select.mp3')
   const timersRef = useRef<number[]>([])
 
@@ -86,8 +87,15 @@ export function SpinGame() {
   }
 
   const pickRandomName = useCallback(() => {
-    return names[Math.floor(Math.random() * names.length)]
-  }, [names])
+    const available = names.filter((n) => !usedNames.includes(n))
+    if (available.length === 0) {
+      setUsedNames([])
+      return names[Math.floor(Math.random() * names.length)]
+    }
+    const picked = available[Math.floor(Math.random() * available.length)]
+    setUsedNames((prev) => [...prev, picked])
+    return picked
+  }, [names, usedNames])
 
   const pickRandomType = (): 'truth' | 'dare' => {
     return Math.random() < 0.5 ? 'truth' : 'dare'
