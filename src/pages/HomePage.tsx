@@ -6,7 +6,7 @@ export function HomePage() {
     <section className="w-full h-full">
       <div className="flex flex-col gap-8">
         <h1 className="text-3xl font-bold text-center">Games</h1>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2 gap-4">
           {GAMES.map((game) => (
             <Link
               key={game.id}
