@@ -23,6 +23,35 @@ function saveNames(names: string[]) {
 
 type SpinResult = { type: 'truth'; text: string } | { type: 'dare'; title: string; text: string } | null
 
+function Confetti() {
+  const particles = Array.from({ length: 30 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    delay: Math.random() * 0.5,
+    color: ['#fabd2f', '#b8bb26', '#fe8019', '#fb4934', '#83a598'][Math.floor(Math.random() * 5)],
+    size: 4 + Math.random() * 6,
+  }))
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="absolute animate-[confettiFall_1.5s_ease-out_forwards]"
+          style={{
+            left: `${p.x}%`,
+            top: '-10px',
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            backgroundColor: p.color,
+            animationDelay: `${p.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
+
 export function SpinGame() {
   const [names, setNames] = useState<string[]>(loadNames)
   const [inputValue, setInputValue] = useState('')
@@ -32,6 +61,7 @@ export function SpinGame() {
   const [spinning, setSpinning] = useState(false)
   const [spinPhase, setSpinPhase] = useState<'idle' | 'spinning-name' | 'picking-type' | 'spinning-type' | 'done'>('idle')
   const [mode, setMode] = useState<'online' | 'offline'>('online')
+  const [showConfetti, setShowConfetti] = useState(false)
   const { playClick: playSelect } = useClickSound('/select.mp3')
   const timersRef = useRef<number[]>([])
 
@@ -111,14 +141,18 @@ export function SpinGame() {
     setSpinPhase('spinning-name')
     setResult(null)
     setDisplayedType(null)
+    setShowConfetti(false)
+    
 
     const finalName = pickRandomName()
     await spinWheel(names, setDisplayedName, 15, 50, finalName)
-    setSpinPhase('spinning-type')
 
+    setSpinPhase('spinning-type')
     const types = ['truth', 'dare']
     const finalType = pickRandomType()
     await spinWheel(types, (t) => setDisplayedType(t as 'truth' | 'dare'), 10, 60, finalType)
+
+    
     playSelect()
 
     if (finalType === 'truth') {
@@ -128,8 +162,11 @@ export function SpinGame() {
       setResult({ type: 'dare', title: dare.title, text: dare.text })
     }
 
+    setShowConfetti(true)
     setSpinPhase('done')
     setSpinning(false)
+
+    setTimeout(() => setShowConfetti(false), 2000)
   }
 
   const handleReset = () => {
@@ -138,12 +175,14 @@ export function SpinGame() {
     setDisplayedType(null)
     setResult(null)
     setSpinPhase('idle')
+    setShowConfetti(false)
   }
 
   const isIdle = spinPhase === 'idle' || spinPhase === 'done'
 
   return (
     <section className="w-full h-full">
+      {showConfetti && <Confetti />}
       <div className="h-full flex flex-col justify-between gap-4">
         <div className="flex justify-between items-center">
           <Link
@@ -225,13 +264,13 @@ export function SpinGame() {
             {names.length < 2 && spinPhase === 'idle' ? (
               <p className="text-fg/60 text-center">Add at least 2 names to play</p>
             ) : spinPhase === 'done' && result ? (
-              <div className="w-full flex flex-col items-center gap-4">
+              <div className="w-full flex flex-col items-center gap-4 animate-[popIn_0.3s_ease]">
                 <div className="text-center">
                   <p className="text-sm text-fg/60 mb-1">Selected</p>
                   <p className="text-3xl font-bold">{displayedName}</p>
                 </div>
                 <div
-                  className={`w-full border-3 border-fg shadow-[5px_5px_0_0_#000] p-6 animate-[slideIn_0.3s_ease] ${
+                  className={`w-full border-3 border-fg shadow-[5px_5px_0_0_#000] p-6 ${
                     result.type === 'truth' ? 'bg-primary' : 'bg-[#fabd2f]'
                   }`}
                 >
@@ -249,13 +288,13 @@ export function SpinGame() {
                 {displayedName && (
                   <div className="w-full text-center">
                     <p className="text-sm text-fg/60 mb-1">Who</p>
-                    <p className="text-4xl font-bold">{displayedName}</p>
+                    <p className="text-4xl font-bold animate-[wiggle_0.15s_ease_infinite]">{displayedName}</p>
                   </div>
                 )}
                 {displayedType && (
                   <div className={`w-full text-center ${displayedType === 'truth' ? 'text-primary' : 'text-[#fabd2f]'}`}>
                     <p className="text-sm text-fg/60 mb-1">What</p>
-                    <p className="text-5xl font-bold uppercase">{displayedType}</p>
+                    <p className="text-5xl font-bold uppercase animate-[wiggle_0.15s_ease_infinite]">{displayedType}</p>
                   </div>
                 )}
                 {!displayedName && !displayedType && (
