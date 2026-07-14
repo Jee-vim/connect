@@ -152,8 +152,10 @@ export function SpinGame() {
     setShowConfetti(false)
     
 
+    const available = names.filter((n) => !usedNames.includes(n))
+    const toSpin = available.length > 0 ? available : names
     const finalName = pickRandomName()
-    await spinWheel(names, setDisplayedName, 15, 50, finalName)
+    await spinWheel(toSpin, setDisplayedName, 15, 50, finalName)
 
     setSpinPhase('spinning-type')
     const types = ['truth', 'dare']
