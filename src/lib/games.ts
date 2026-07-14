@@ -14,4 +14,11 @@ export const GAMES: Game[] = [
     icon: '💬',
     path: '/connects',
   },
+  {
+    id: 'spin-dare',
+    name: 'Spin & Dare',
+    description: 'Truth or dare with a twist',
+    icon: '🎯',
+    path: '/spin-dare',
+  },
 ]

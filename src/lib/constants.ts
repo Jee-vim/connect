@@ -248,3 +248,126 @@ export const QUESTIONS: Record<string, string[]> = {
     "Menurutmu, apakah kejujuran mutlak dalam hubungan itu sebenernya utopia yang justru bakal ngerusak keharmonisan?"
   ]
 };
+
+export const CHALLENGES: Record<string, { title: string; online: string; offline: string }[]> = {
+  chemistry: [
+    {
+      title: "Telepati Singkat",
+      online: "Hitung 1 sampai 3 bersama di video call, lalu sebutkan satu kata acak secara bersamaan. Lakukan sampai kalian menyebutkan kata yang persis sama.",
+      offline: "Duduk berhadapan, tatap mata tanpa bicara selama 1 menit, lalu sebutkan satu hal yang paling dipikirkan oleh pasangan saat itu juga."
+    },
+    {
+      title: "Tiru Gaya Emoticon",
+      online: "Kirim satu emoji acak di chat secara bergantian. Pihak lawan harus mengirimkan foto selfie yang meniru persis ekspresi emoji tersebut dalam waktu 10 detik.",
+      offline: "Perlihatkan satu emoji dari HP, lalu pihak lawan harus meniru ekspresi dan gestur tubuh emoji tersebut di depan umum tanpa malu."
+    },
+    {
+      title: "Juru Masak Buta",
+      online: "Pesan makanan lewat aplikasi ojek online untuk pasangan secara rahasia (saling tukar menu). Pihak yang menerima wajib menghabiskan menu pilihan pasangannya tanpa protes.",
+      offline: "Pesan menu makanan di restoran untuk satu sama lain tanpa memberi tahu apa makanannya sampai hidangan tersebut sampai di meja."
+    },
+    {
+      title: "Mind Reader",
+      online: "Kirim deskripsi 3 petunjuk tentang benda yang ada di depan mejamu sekarang via chat. Pasangan harus menebak nama benda tersebut dalam 3 kali kesempatan.",
+      offline: "Pilih satu barang yang ada di dalam ruangan/kafe secara rahasia, lalu berikan 3 kata kunci implisit agar pasangan bisa menebak barang yang kamu maksud."
+    },
+    {
+      title: "Pakaian Pilihan",
+      online: "Pilihkan setelan pakaian (outfit) untuk pasangan dari lemari mereka lewat video call, dan pasangan wajib memakainya selama sisa sesi call hari ini.",
+      offline: "Saling memilihkan baju di toko pakaian atau mal, lalu pihak lawan wajib mencoba kombinasi pakaian tersebut di ruang ganti dan menunjukkannya."
+    }
+  ],
+  wager: [
+    {
+      title: "Adu Tahan Tawa",
+      online: "Nyalakan kamera video call, lalu isi mulut masing-masing dengan sedikit air. Cari satu video lucu di internet, pihak yang pertama kali menyemburkan air kalah.",
+      offline: "Isi mulut dengan air dan saling bertatapan langsung secara dekat. Pihak lawan akan mencoba melawak tanpa menyentuh. Yang menyembur duluan kalah."
+    },
+    {
+      title: "Detektor Kebohongan",
+      online: "Sebutkan 3 pernyataan tentang dirimu (2 fakta, 1 mitos/bohong). Pasangan harus menebak mana yang bohong lewat chat/call. Jika tebakannya salah, dia harus dihukum.",
+      offline: "Pegang pergelangan tangan pasangan untuk merasakan denyut nadinya, lalu ajukan pertanyaan sensitif. Tebak dia jujur atau bohong berdasarkan reaksi fisiknya."
+    },
+    {
+      title: "Spam Teks Tercepat",
+      online: "Ketik kalimat panjang yang ditentukan (misal: 'Saya berjanji tidak akan ngambek tanpa alasan yang jelas') sebanyak 5 kali tanpa typo di chat. Yang paling lambat kalah.",
+      offline: "Lomba mengetik teks yang sama di HP masing-masing dengan mata tertutup saat duduk berdampingan. Hasil ketikan paling berantakan kalah."
+    },
+    {
+      title: "Blink Challenge",
+      online: "Nyalakan kamera video call posisi dekat, lalu lakukan lomba menatap layar tanpa berkedip. Siapa yang berkedip duluan harus mengirimkan saldo e-wallet senilai harga kopi.",
+      offline: "Saling menatap mata dalam jarak dekat secara langsung tanpa berkedip. Pihak yang berkedip duluan harus membayar seluruh tagihan makan hari itu."
+    },
+    {
+      title: "Tebak Harga",
+      online: "Tunjukkan satu barang random di kamarmu lewat kamera. Pasangan harus menebak kisaran harganya. Jika tebakannya meleset jauh, dia kalah dan mendapat hukuman.",
+      offline: "Saat belanja di supermarket, ambil satu produk acak. Pihak yang tebakan harganya paling jauh dari nominal asli di kasir dinyatakan kalah."
+    }
+  ],
+  absurd: [
+    {
+      title: "Dubbing Tanpa Suara",
+      online: "Matikan suara (mute) mikrofon saat video call. Berbicaralah selama 30 detik, dan pasangan harus menebak apa kalimat lengkap yang sedang kamu ucapkan lewat gerak bibir.",
+      offline: "Saat berada di tempat umum, perhatikan orang asing yang agak jauh. Lakukan dubbing suara seolah-olah kalian yang sedang mengisi suara obrolan mereka."
+    },
+    {
+      title: "Filter Paling Absurd",
+      online: "Gunakan filter video call paling jelek atau aneh yang ada di aplikasi, lalu lakukan screenshot. Foto tersebut wajib dijadikan foto profil chat selama 24 jam.",
+      offline: "Gunakan kamera HP pasangan, ambil foto candid pasangannya dari angle paling bawah (double chin) secara terbalik. Foto wajib disimpan di galeri utama."
+    },
+    {
+      title: "Bahasa Isyarat Random",
+      online: "Jelaskan aktivitas terakhirmu hari ini menggunakan gerakan tangan di kamera tanpa mengeluarkan suara sedikit pun sampai pasangan berhasil menebaknya.",
+      offline: "Komunikasi menggunakan bahasa tubuh dan isyarat tangan saja selama 5 menit penuh saat sedang memesan makanan atau minuman di kasir."
+    },
+    {
+      title: "Aksen Palsu",
+      online: "Lakukan obrolan di video call selama 10 menit ke depan dengan wajib menggunakan logat/aksen daerah atau bahasa asing tiruan secara konsisten tanpa boleh tertawa.",
+      offline: "Berbicaralah dengan pasangan menggunakan aksen formal layaknya pembawa berita berita resmi sepanjang jalan menuju lokasi kencan."
+    },
+    {
+      title: "Gambar Abstrak",
+      online: "Gunakan fitur papan tulis digital atau aplikasi gambar di HP, gambar wajah pasangan dalam waktu 30 detik dengan tangan kiri (atau tangan non-dominan) lalu kirim hasilnya.",
+      offline: "Gunakan kertas struk belanja dan pulpen, gambar sketsa wajah pasangan tanpa boleh melihat ke arah kertas sama sekali (mata wajib menatap wajah pasangan)."
+    }
+  ],
+  romantic: [
+    {
+      title: "Karaoke Estafet",
+      online: "Nyalakan voice note atau call, nyanyikan satu bait lagu romantis, lalu berhenti mendadak. Pasangan wajib melanjutkan bait berikutnya dengan nada yang benar.",
+      offline: "Putar satu lagu favorit kalian di tempat sepi, lalu bernyanyi bersama sambil bergantian mengisi bagian vokal utama dan vokal latar."
+    },
+    {
+      title: "Kurator Playlist",
+      online: "Bikin sebuah playlist rahasia berisi 5 lagu yang menggambarkan perasaanmu saat ini untuknya, kirim link-nya, dan biarkan dia menebak pesan tersirat dari lagu-lagu itu.",
+      offline: "Saling bertukar sebelah earphone/headset, lalu dengarkan satu lagu penuh sambil berjalan bersama tanpa membuka HP sama sekali."
+    },
+    {
+      title: "Surat Waktu",
+      online: "Tulis satu paragraf apresiasi jujur mengenai sifat pasangan yang paling kamu kagumi, lalu kirim via email dengan menjadwalkan pengiriman otomatis untuk besok subuh.",
+      offline: "Tulis pesan rahasia di selembar kertas kecil, lipat, lalu selipkan secara diam-diam ke dalam dompet atau saku jaket pasangan sebelum berpisah pulang."
+    },
+    {
+      title: "Memori Kolektif",
+      online: "Secara bergantian, sebutkan tanggal, tempat, dan pakaian yang dipakai saat pertama kali kalian melakukan kencan atau obrolan pertama secara detail.",
+      offline: "Buka galeri foto lama bersama, lalu reka ulang pos serta ekspresi dari salah satu foto kencan pertama kalian di tempat yang sama saat ini."
+    }
+  ],
+  honesty: [
+    {
+      title: "Isi Dompet Digital",
+      online: "Lakukan share screen atau kirim screenshot histori transaksi e-wallet / m-banking kamu selama 3 hari terakhir tanpa ada yang ditutupi.",
+      offline: "Saling bertukar HP selama 5 menit untuk memeriksa riwayat pencarian (search history) di aplikasi YouTube atau e-commerce masing-masing."
+    },
+    {
+      title: "Konsekuensi Jujur",
+      online: "Pasangan boleh menanyakan satu pertanyaan paling sensitif yang selama ini dia takutkan, dan kamu wajib menjawab secara verbal dengan jujur tanpa boleh menghindar.",
+      offline: "Tatap mata pasangan secara langsung, jawab pertanyaan 'Kapan momen terakhir kali kamu merasa kecewa dengan sikapku?' tanpa pembelaan diri."
+    },
+    {
+      title: "Notifikasi Terbuka",
+      online: "Selama 15 menit ke depan saat video call, setiap ada notifikasi chat masuk dari siapa pun, kamu wajib membacakan isi pesan tersebut keras-keras.",
+      offline: "Letakkan HP masing-masing di atas meja dengan posisi layar menghadap ke atas dan mode dering aktif. Biarkan pasangan melihat setiap pop-up notifikasi yang masuk."
+    }
+  ]
+};

@@ -1,12 +1,14 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import { HomePage } from './pages/HomePage'
 import { ConnectsGame } from './pages/ConnectsGame'
+import { SpinGame } from './pages/SpinGame'
 
 export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/connects" element={<ConnectsGame />} />
+      <Route path="/spin-dare" element={<SpinGame />} />
       <Route
         path="*"
         element={
