@@ -2,12 +2,10 @@ import { Link } from 'react-router-dom'
 import { useQuestions } from '../hooks/useQuestions'
 import { QUESTIONS } from '../lib/constants'
 import { useClickSound } from '../hooks/useClickSound'
-import { useBackgroundMusic } from '../hooks/useBackgroundMusic'
 import { Progress } from '../components/Progress'
 import { Card } from '../components/Card'
-import { StartPopup } from '../components/StartPopup'
-import { VolumeButton } from '../components/VolumeButton'
-import { useState } from 'react'
+
+
 
 export function ConnectsGame() {
   const {
@@ -22,29 +20,11 @@ export function ConnectsGame() {
     reset,
   } = useQuestions()
   const total = Object.values(QUESTIONS).flat().length
-  const { start: startBgMusic, muted, toggleMute } = useBackgroundMusic('/background.mp3', false)
-  const { playClick } = useClickSound('/click.mp3', muted)
-  const { playClick: playResetSound } = useClickSound('/faahhh.mp3', muted)
-  const [started, setStarted] = useState(false)
-
+  const { playClick } = useClickSound('/click.mp3')
+  const { playClick: playResetSound } = useClickSound('/faahhh.mp3')
   const handleReset = () => {
     playResetSound()
     reset()
-  }
-
-  const handleToggleMute = toggleMute
-
-  if (!started) {
-    return (
-      <StartPopup
-        onStart={() => {
-          startBgMusic()
-          setStarted(true)
-        }}
-        title="Connects"
-        description="A question card game"
-      />
-    )
   }
 
   if (isCompleted) {
@@ -59,7 +39,6 @@ export function ConnectsGame() {
               Home
             </Link>
             <Progress remaining={0} total={total} onReset={handleReset} />
-            <VolumeButton muted={muted} onToggle={handleToggleMute} />
           </div>
           <Card text="All questions completed! Great job." phase={phase} direction={direction} />
           <div className="flex gap-4">
@@ -90,7 +69,6 @@ export function ConnectsGame() {
             Home
           </Link>
           <Progress remaining={remaining} total={total} onReset={handleReset} />
-          <VolumeButton muted={muted} onToggle={handleToggleMute} />
         </div>
         <div className="overflow-hidden">
           <Card text={current} phase={phase} direction={direction} />

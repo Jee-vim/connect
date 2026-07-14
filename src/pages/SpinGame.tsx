@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { getItem, setItem } from '../lib/storage'
 import { QUESTIONS, CHALLENGES } from '../lib/constants'
 import { useClickSound } from '../hooks/useClickSound'
-import { useBackgroundMusic } from '../hooks/useBackgroundMusic'
-import { VolumeButton } from '../components/VolumeButton'
 
 const NAMES_KEY = 'spin_game_names'
 
@@ -34,8 +32,7 @@ export function SpinGame() {
   const [spinning, setSpinning] = useState(false)
   const [spinPhase, setSpinPhase] = useState<'idle' | 'spinning-name' | 'picking-type' | 'spinning-type' | 'done'>('idle')
   const [mode, setMode] = useState<'online' | 'offline'>('online')
-  const { muted, toggleMute } = useBackgroundMusic('/background.mp3', true)
-  const { playClick: playSelect } = useClickSound('/select.mp3', muted)
+  const { playClick: playSelect } = useClickSound('/select.mp3')
   const timersRef = useRef<number[]>([])
 
   const clearTimers = () => {
@@ -156,7 +153,7 @@ export function SpinGame() {
             Home
           </Link>
           <h1 className="text-xl font-bold">Spin & Dare</h1>
-          <VolumeButton muted={muted} onToggle={toggleMute} />
+          <div className="w-14" />
         </div>
 
         <div className="flex-1 flex flex-col gap-3">
@@ -246,22 +243,17 @@ export function SpinGame() {
                   )}
                   <p className="text-center">{result.text}</p>
                 </div>
-                
               </div>
             ) : (
               <div className="flex flex-col items-center gap-4 w-full">
                 {displayedName && (
-                  <div
-                    className="w-full text-center"
-                  >
+                  <div className="w-full text-center">
                     <p className="text-sm text-fg/60 mb-1">Who</p>
                     <p className="text-4xl font-bold">{displayedName}</p>
                   </div>
                 )}
                 {displayedType && (
-                  <div
-                    className={`w-full text-center ${displayedType === 'truth' ? 'text-primary' : 'text-[#fabd2f]'}`}
-                  >
+                  <div className={`w-full text-center ${displayedType === 'truth' ? 'text-primary' : 'text-[#fabd2f]'}`}>
                     <p className="text-sm text-fg/60 mb-1">What</p>
                     <p className="text-5xl font-bold uppercase">{displayedType}</p>
                   </div>
