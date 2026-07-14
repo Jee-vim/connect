@@ -275,6 +275,21 @@ export const CHALLENGES: Record<string, { title: string; online: string; offline
       title: "Pakaian Pilihan",
       online: "Pilihkan setelan pakaian (outfit) untuk pasangan dari lemari mereka lewat video call, dan pasangan wajib memakainya selama sisa sesi call hari ini.",
       offline: "Saling memilihkan baju di toko pakaian atau mal, lalu pihak lawan wajib mencoba kombinasi pakaian tersebut di ruang ganti dan menunjukkannya."
+    },
+    {
+      title: "Asosiasi Kata Instan",
+      online: "Sebutkan satu kata lewat voice note, pasangan harus langsung membalas dengan kata pertama yang muncul di kepalanya dalam waktu 2 detik. Lakukan estafet hingga 15 kata.",
+      offline: "Saling menggenggam tangan, sebutkan satu kata benda secara bergantian dengan cepat tanpa jeda berpikir. Pihak yang berhenti lebih dari 2 detik kalah."
+    },
+    {
+      title: "Telepati Sentuhan & Gerak",
+      online: "Lakukan satu gerakan tangan acak di depan kamera secara bersamaan setelah hitungan ketiga. Ulangi sampai gerakan tangan kalian benar-benar sama tanpa direncanakan.",
+      offline: "Minta pasangan menutup mata, lalu gambarlah satu huruf atau bentuk sederhana di telapak tangannya menggunakan ujung jari. Pasangan harus menebaknya dengan benar."
+    },
+    {
+      title: "Satu Selera",
+      online: "Makan camilan masing-masing di depan kamera. Dekatkan mic lalu kunyah camilan tersebut, pasangan harus menebak jenis atau rasa camilan yang sedang kamu makan dari suaranya.",
+      offline: "Beli dua jenis minuman dengan rasa berbeda secara acak. Tutup mata pasangan, lalu minta dia menebak varian rasa minuman tersebut hanya lewat satu kali hirupan aroma."
     }
   ],
   wager: [
@@ -302,6 +317,21 @@ export const CHALLENGES: Record<string, { title: string; online: string; offline
       title: "Tebak Harga",
       online: "Tunjukkan satu barang random di kamarmu lewat kamera. Pasangan harus menebak kisaran harganya. Jika tebakannya meleset jauh, dia kalah dan mendapat hukuman.",
       offline: "Saat belanja di supermarket, ambil satu produk acak. Pihak yang tebakan harganya paling jauh dari nominal asli di kasir dinyatakan kalah."
+    },
+    {
+      title: "Tebak Durasi",
+      online: "Tutup mata kalian saat video call. Gunakan stopwatch masing-masing, lalu buka mata ketika kalian merasa tepat 45 detik berlalu. Selisih waktu terjauh wajib mengirimkan camilan.",
+      offline: "Lepas jam tangan dan simpan HP. Tebak kapan tepatnya waktu menunjukkan 10 menit berlalu sambil tetap mengobrol biasa. Tebakan yang paling meleset kalah."
+    },
+    {
+      title: "Kuis Trivia Pasangan",
+      online: "Kirimkan 5 pertanyaan trivia tentang dirimu (contoh: nama hewan peliharaan pertama, nama guru SD favorit). Setiap jawaban salah dari pasangan bernilai satu hukuman coret wajah.",
+      offline: "Tuliskan jawaban dari pertanyaan 'Apa hal yang paling membuatku kesal minggu ini?' di kertas masing-masing secara rahasia, lalu tunjukkan bersamaan. Jawaban yang tidak cocok kalah."
+    },
+    {
+      title: "Tahan Napas",
+      online: "Nyalakan kamera dan lakukan tantangan menahan napas bersamaan. Pihak yang pertama kali mengembuskan napas atau menyerah harus mengirimkan stiker konyol pilihan pemenang.",
+      offline: "Saling berpegangan tangan dan mulai menahan napas bersama. Pihak yang menyerah duluan wajib menuruti satu permintaan kecil dari pemenang selama sisa hari kencan."
     }
   ],
   absurd: [
@@ -329,6 +359,21 @@ export const CHALLENGES: Record<string, { title: string; online: string; offline
       title: "Gambar Abstrak",
       online: "Gunakan fitur papan tulis digital atau aplikasi gambar di HP, gambar wajah pasangan dalam waktu 30 detik dengan tangan kiri (atau tangan non-dominan) lalu kirim hasilnya.",
       offline: "Gunakan kertas struk belanja dan pulpen, gambar sketsa wajah pasangan tanpa boleh melihat ke arah kertas sama sekali (mata wajib menatap wajah pasangan)."
+    },
+    {
+      title: "Patung Berjalan",
+      online: "Setiap kali pasangan mengucapkan kata 'kamu' saat video call, kamu harus mematung (freeze) selama 10 detik penuh seolah-olah koneksi internet terputus.",
+      offline: "Ketika berada di trotoar atau tempat umum, berjalanlah dengan gerakan lambat (slow motion) ekstrem selama 1 menit penuh seolah waktu melambat."
+    },
+    {
+      title: "Bahasa Planet",
+      online: "Kirimkan pesan suara (voice note) selama 30 detik menggunakan bahasa buatan yang tidak memiliki arti sama sekali, namun sampaikan dengan emosi yang sangat mendalam.",
+      offline: "Saat memesan makanan di kasir, gunakan satu kata fiktif buatan kalian sendiri sebagai pengganti kata 'terima kasih' dengan ekspresi wajah yang sangat serius."
+    },
+    {
+      title: "Oper Objek Imajiner",
+      online: "Lemparkan sebuah benda imajiner (seolah-olah bola berat atau gelembung) ke arah kamera, pasangan harus berpura-pura menangkap benda tersebut sesuai reaksi fisik yang logis.",
+      offline: "Berjalanlah menyusuri jalanan umum sambil melompati ubin dengan pola warna tertentu saja, berpura-pura bahwa ubin warna lain adalah lava panas."
     }
   ],
   romantic: [
@@ -351,6 +396,26 @@ export const CHALLENGES: Record<string, { title: string; online: string; offline
       title: "Memori Kolektif",
       online: "Secara bergantian, sebutkan tanggal, tempat, dan pakaian yang dipakai saat pertama kali kalian melakukan kencan atau obrolan pertama secara detail.",
       offline: "Buka galeri foto lama bersama, lalu reka ulang pos serta ekspresi dari salah satu foto kencan pertama kalian di tempat yang sama saat ini."
+    },
+    {
+      title: "Satu Puisi, Dua Kepala",
+      online: "Ketik satu baris kalimat puitis di chat, kemudian pasangan harus menyambung baris kedua, terus bergantian hingga terbentuk satu bait puisi pendek berisi 4 baris.",
+      offline: "Saling bertatapan, sebutkan satu kata sifat romantis secara bergantian yang mendeskripsikan mata pasangan tanpa boleh mengulang kata yang sama."
+    },
+    {
+      title: "Pujian Alfabet",
+      online: "Berikan pujian kepada pasangan secara bergantian melalui chat dimulai dari huruf A sampai Z secara berurutan (contoh: A - Anggun, B - Baik sekali, dst).",
+      offline: "Bisikkan satu pujian tulus tentang karakter pasangan secara acak setiap kali kalian berganti lokasi atau tempat duduk selama kencan hari ini."
+    },
+    {
+      title: "Kompilasi Foto Estetis",
+      online: "Ambil foto langit atau pemandangan di sekitar tempatmu berada sekarang secara estetik, lalu kirimkan ke pasangan untuk digabung menjadi satu frame kolase berdampingan.",
+      offline: "Gunakan bayangan kalian di dinding atau jalanan saat sore hari untuk mengambil foto siluet bersama yang paling kreatif dan estetis."
+    },
+    {
+      title: "Pandangan Tanpa Kata",
+      online: "Nyalakan kamera video call, matikan mikrofon, lalu saling tatap mata satu sama lain selama 2 menit penuh tanpa melakukan gerakan wajah konyol atau tertawa.",
+      offline: "Duduk berhadapan di tempat yang tenang, genggam kedua tangan pasangan, lalu tatap matanya selama 2 menit penuh tanpa mengucapkan satu kata pun."
     }
   ],
   honesty: [
@@ -368,6 +433,21 @@ export const CHALLENGES: Record<string, { title: string; online: string; offline
       title: "Notifikasi Terbuka",
       online: "Selama 15 menit ke depan saat video call, setiap ada notifikasi chat masuk dari siapa pun, kamu wajib membacakan isi pesan tersebut keras-keras.",
       offline: "Letakkan HP masing-masing di atas meja dengan posisi layar menghadap ke atas dan mode dering aktif. Biarkan pasangan melihat setiap pop-up notifikasi yang masuk."
+    },
+    {
+      title: "Akses Galeri Acak",
+      online: "Minta pasangan menyebutkan satu bulan dan tahun acak masa lalu, lalu lakukan share screen galeri foto kamu pada bulan tersebut untuk ditunjukkan isi fotonya.",
+      offline: "Buka aplikasi galeri foto, serahkan HP ke pasangan, lalu biarkan pasangan melakukan scroll cepat dan berhenti secara acak untuk melihat satu foto yang terpilih."
+    },
+    {
+      title: "Kesan Pertama yang Jujur",
+      online: "Tuliskan di sebuah dokumen bersama atau chat tentang hal pertama yang membuatmu sempat ragu atau justru sangat kagum kepada pasangan saat awal pertama kali kenal.",
+      offline: "Ungkapkan satu kebiasaan kecil atau cara bersikap pasangan yang sebenarnya paling sulit kamu toleransi selama ini, namun selalu kamu biarkan tanpa protes."
+    },
+    {
+      title: "Buka Tab Browser",
+      online: "Lakukan share screen layar HP atau laptopmu saat ini juga, lalu buka browser dan tunjukkan semua tab aktif yang sedang terbuka tanpa menutup satu pun terlebih dahulu.",
+      offline: "Buka riwayat tontonan (history) terakhir di aplikasi media sosial utama kalian (seperti Instagram Reels atau TikTok) di depan pasangan secara langsung."
     }
   ]
 };
